@@ -1,0 +1,4 @@
+transformers>=4.45
+# If you want GPU/CPU specific torch, install separately as needed.
+# For CPU only, a common pattern on macOS/Linux is:
+# pip install torch --index-url https://download.pytorch.org/whl/cpu
