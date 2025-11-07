@@ -16,26 +16,32 @@ make run
 ```
 
 Predict examples
-
+```
 curl -s -X POST http://localhost:8000/predict \
 -H 'Content-Type: application/json' \
 -d '{"text":"I absolutely love this app!"}' | jq
-
+```
 
 # With Transformers (optional):
+```
 export ENABLE_TRANSFORMERS=1
 pip install -r requirements-optional.txt
 uvicorn app.main:app --reload
+```
 
 
 # Named Entity Recognition
+```
 curl -s -X POST http://localhost:8000/predict \
 -H 'Content-Type: application/json' \
 -d '{"text":"Barack Obama was born in Hawaii.", "task":"ner"}' | jq
+```
 
 
 # Zero-shot classification
+```
 curl -s -X POST http://localhost:8000/predict \
 -H 'Content-Type: application/json' \
 -d '{"text":"This movie was unexpectedly good.", "task":"zero-shot", "candidate_labels":["positive","negative","neutral"]}' | jq
+```
 
