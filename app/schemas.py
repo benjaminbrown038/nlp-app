@@ -1,17 +1,17 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from typing import List, Optional
 
 
 class HealthResponse(BaseModel):
-status: str = "ok"
+    status: str = "ok"
 
 
 class PredictRequest(BaseModel):
-text: str = Field(..., min_length=1, description="Input text")
-task: str = Field("sentiment", description="sentiment | ner | zero-shot")
-candidate_labels: Optional[List[str]] = None # used for zero-shot
+    text: str
+    task: str
+    candidate_labels: Optional[List[str]] = None
 
 
 class PredictResponse(BaseModel):
-task: str
-result: dict
+    task: str
+    result: dict

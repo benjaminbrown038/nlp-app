@@ -1,22 +1,14 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
+# Use python3 by default (no args needed)
+PYTHON=python3
 
-PY=${1:-"3.10"}
+echo "Using Python executable: $PYTHON"
 
-
-python${PY} -m venv .venv
+$PYTHON -m venv .venv
 source .venv/bin/activate
-
 
 pip install --upgrade pip
 pip install -r requirements.txt
 
-
-# Optional heavy deps
-if [[ "${ENABLE_TRANSFORMERS:-0}" == "1" ]]; then
-pip install -r requirements-optional.txt
-fi
-
-
-echo "\n[ ok ] Environment ready. To activate: source .venv/bin/activate"
+echo "✅ Virtual environment created and dependencies installed!"

@@ -3,7 +3,7 @@
 
 
 init:
-	bash scripts/setup_env.sh 3.10
+	bash scripts/setup_env.sh
 
 
 run:
